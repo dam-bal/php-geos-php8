@@ -33,6 +33,9 @@
 /* Own stuff */
 #include "php_geos.h"
 
+/* Arg info */
+#include "geos_arginfo.h"
+
 static ZEND_DECLARE_MODULE_GLOBALS(geos);
 static PHP_GINIT_FUNCTION(geos);
 
@@ -92,16 +95,16 @@ PHP_FUNCTION(GEOSRelateMatch);
 
 
 static zend_function_entry geos_functions[] = {
-    PHP_FE(GEOSVersion, NULL)
-    PHP_FE(GEOSPolygonize, NULL)
-    PHP_FE(GEOSLineMerge, NULL)
+    PHP_FE(GEOSVersion, arginfo_GEOSVersion)
+    PHP_FE(GEOSPolygonize, arginfo_GEOSPolygonize)
+    PHP_FE(GEOSLineMerge, arginfo_GEOSLineMerge)
 
 #   ifdef HAVE_GEOS_SHARED_PATHS
-    PHP_FE(GEOSSharedPaths, NULL)
+    PHP_FE(GEOSSharedPaths, arginfo_GEOSSharedPaths)
 #   endif
 
 #   ifdef HAVE_GEOS_RELATE_PATTERN_MATCH
-    PHP_FE(GEOSRelateMatch, NULL)
+    PHP_FE(GEOSRelateMatch, arginfo_GEOSRelateMatch)
 #   endif
     {NULL, NULL, NULL}
 };
@@ -428,142 +431,142 @@ PHP_METHOD(Geometry, clipByRect);
 #endif
 
 static zend_function_entry Geometry_methods[] = {
-    PHP_ME(Geometry, __construct, NULL, 0)
-    PHP_ME(Geometry, __toString, NULL, 0)
-    PHP_ME(Geometry, project, NULL, 0)
-    PHP_ME(Geometry, interpolate, NULL, 0)
-    PHP_ME(Geometry, buffer, NULL, 0)
+    PHP_ME(Geometry, __construct, arginfo_class_GEOSGeometry___construct, 0)
+    PHP_ME(Geometry, __toString, arginfo_class_GEOSGeometry___toString, 0)
+    PHP_ME(Geometry, project, arginfo_class_GEOSGeometry_project, 0)
+    PHP_ME(Geometry, interpolate, arginfo_class_GEOSGeometry_interpolate, 0)
+    PHP_ME(Geometry, buffer, arginfo_class_GEOSGeometry_buffer, 0)
 
 #   ifdef HAVE_GEOS_OFFSET_CURVE
-    PHP_ME(Geometry, offsetCurve, NULL, 0)
+    PHP_ME(Geometry, offsetCurve, arginfo_class_GEOSGeometry_offsetCurve, 0)
 #   endif
 
-    PHP_ME(Geometry, envelope, NULL, 0)
-    PHP_ME(Geometry, intersection, NULL, 0)
-    PHP_ME(Geometry, convexHull, NULL, 0)
-    PHP_ME(Geometry, difference, NULL, 0)
-    PHP_ME(Geometry, symDifference, NULL, 0)
-    PHP_ME(Geometry, boundary, NULL, 0)
-    PHP_ME(Geometry, union, NULL, 0)
-    PHP_ME(Geometry, pointOnSurface, NULL, 0)
-    PHP_ME(Geometry, centroid, NULL, 0)
-    PHP_ME(Geometry, relate, NULL, 0)
+    PHP_ME(Geometry, envelope, arginfo_class_GEOSGeometry_envelope, 0)
+    PHP_ME(Geometry, intersection, arginfo_class_GEOSGeometry_intersection, 0)
+    PHP_ME(Geometry, convexHull, arginfo_class_GEOSGeometry_convexHull, 0)
+    PHP_ME(Geometry, difference, arginfo_class_GEOSGeometry_difference, 0)
+    PHP_ME(Geometry, symDifference, arginfo_class_GEOSGeometry_symDifference, 0)
+    PHP_ME(Geometry, boundary, arginfo_class_GEOSGeometry_boundary, 0)
+    PHP_ME(Geometry, union, arginfo_class_GEOSGeometry_union, 0)
+    PHP_ME(Geometry, pointOnSurface, arginfo_class_GEOSGeometry_pointOnSurface, 0)
+    PHP_ME(Geometry, centroid, arginfo_class_GEOSGeometry_centroid, 0)
+    PHP_ME(Geometry, relate, arginfo_class_GEOSGeometry_relate, 0)
 
 #   ifdef HAVE_GEOS_RELATE_BOUNDARY_NODE_RULE
-    PHP_ME(Geometry, relateBoundaryNodeRule, NULL, 0)
+    PHP_ME(Geometry, relateBoundaryNodeRule, arginfo_class_GEOSGeometry_relateBoundaryNodeRule, 0)
 #   endif
 
-    PHP_ME(Geometry, simplify, NULL, 0)
-    PHP_ME(Geometry, normalize, NULL, 0)
+    PHP_ME(Geometry, simplify, arginfo_class_GEOSGeometry_simplify, 0)
+    PHP_ME(Geometry, normalize, arginfo_class_GEOSGeometry_normalize, 0)
 
 #   ifdef HAVE_GEOS_GEOM_SET_PRECISION
-    PHP_ME(Geometry, setPrecision, NULL, 0)
+    PHP_ME(Geometry, setPrecision, arginfo_class_GEOSGeometry_setPrecision, 0)
 #   endif
 
 #   if HAVE_GEOS_GEOM_GET_PRECISION
-    PHP_ME(Geometry, getPrecision, NULL, 0)
+    PHP_ME(Geometry, getPrecision, arginfo_class_GEOSGeometry_getPrecision, 0)
 #   endif
 
 #   ifdef HAVE_GEOS_GEOM_EXTRACT_UNIQUE_POINTS
-    PHP_ME(Geometry, extractUniquePoints, NULL, 0)
+    PHP_ME(Geometry, extractUniquePoints, arginfo_class_GEOSGeometry_extractUniquePoints, 0)
 #   endif
 
-    PHP_ME(Geometry, disjoint, NULL, 0)
-    PHP_ME(Geometry, touches, NULL, 0)
-    PHP_ME(Geometry, intersects, NULL, 0)
-    PHP_ME(Geometry, crosses, NULL, 0)
-    PHP_ME(Geometry, within, NULL, 0)
-    PHP_ME(Geometry, contains, NULL, 0)
-    PHP_ME(Geometry, overlaps, NULL, 0)
+    PHP_ME(Geometry, disjoint, arginfo_class_GEOSGeometry_disjoint, 0)
+    PHP_ME(Geometry, touches, arginfo_class_GEOSGeometry_touches, 0)
+    PHP_ME(Geometry, intersects, arginfo_class_GEOSGeometry_intersects, 0)
+    PHP_ME(Geometry, crosses, arginfo_class_GEOSGeometry_crosses, 0)
+    PHP_ME(Geometry, within, arginfo_class_GEOSGeometry_within, 0)
+    PHP_ME(Geometry, contains, arginfo_class_GEOSGeometry_contains, 0)
+    PHP_ME(Geometry, overlaps, arginfo_class_GEOSGeometry_overlaps, 0)
 
 #   ifdef HAVE_GEOS_COVERS
-    PHP_ME(Geometry, covers, NULL, 0)
+    PHP_ME(Geometry, covers, arginfo_class_GEOSGeometry_covers, 0)
 #   endif
 
 #   ifdef HAVE_GEOS_COVERED_BY
-    PHP_ME(Geometry, coveredBy, NULL, 0)
+    PHP_ME(Geometry, coveredBy, arginfo_class_GEOSGeometry_coveredBy, 0)
 #   endif
 
-    PHP_ME(Geometry, equals, NULL, 0)
-    PHP_ME(Geometry, equalsExact, NULL, 0)
-    PHP_ME(Geometry, isEmpty, NULL, 0)
+    PHP_ME(Geometry, equals, arginfo_class_GEOSGeometry_equals, 0)
+    PHP_ME(Geometry, equalsExact, arginfo_class_GEOSGeometry_equalsExact, 0)
+    PHP_ME(Geometry, isEmpty, arginfo_class_GEOSGeometry_isEmpty, 0)
 
 #   ifdef HAVE_GEOS_IS_VALID_DETAIL
-    PHP_ME(Geometry, checkValidity, NULL, 0)
+    PHP_ME(Geometry, checkValidity, arginfo_class_GEOSGeometry_checkValidity, 0)
 #   endif
 
-    PHP_ME(Geometry, isSimple, NULL, 0)
-    PHP_ME(Geometry, isRing, NULL, 0)
-    PHP_ME(Geometry, hasZ, NULL, 0)
+    PHP_ME(Geometry, isSimple, arginfo_class_GEOSGeometry_isSimple, 0)
+    PHP_ME(Geometry, isRing, arginfo_class_GEOSGeometry_isRing, 0)
+    PHP_ME(Geometry, hasZ, arginfo_class_GEOSGeometry_hasZ, 0)
 
 #   ifdef HAVE_GEOS_IS_CLOSED
-    PHP_ME(Geometry, isClosed, NULL, 0)
+    PHP_ME(Geometry, isClosed, arginfo_class_GEOSGeometry_isClosed, 0)
 #   endif
 
-    PHP_ME(Geometry, typeName, NULL, 0)
-    PHP_ME(Geometry, typeId, NULL, 0)
-    PHP_ME(Geometry, getSRID, NULL, 0)
-    PHP_ME(Geometry, setSRID, NULL, 0)
-    PHP_ME(Geometry, numGeometries, NULL, 0)
-    PHP_ME(Geometry, geometryN, NULL, 0)
-    PHP_ME(Geometry, numInteriorRings, NULL, 0)
+    PHP_ME(Geometry, typeName, arginfo_class_GEOSGeometry_typeName, 0)
+    PHP_ME(Geometry, typeId, arginfo_class_GEOSGeometry_typeId, 0)
+    PHP_ME(Geometry, getSRID, arginfo_class_GEOSGeometry_getSRID, 0)
+    PHP_ME(Geometry, setSRID, arginfo_class_GEOSGeometry_setSRID, 0)
+    PHP_ME(Geometry, numGeometries, arginfo_class_GEOSGeometry_numGeometries, 0)
+    PHP_ME(Geometry, geometryN, arginfo_class_GEOSGeometry_geometryN, 0)
+    PHP_ME(Geometry, numInteriorRings, arginfo_class_GEOSGeometry_numInteriorRings, 0)
 
 #   ifdef HAVE_GEOS_GEOM_GET_NUM_POINTS
-    PHP_ME(Geometry, numPoints, NULL, 0)
+    PHP_ME(Geometry, numPoints, arginfo_class_GEOSGeometry_numPoints, 0)
 #   endif
 
 #   ifdef HAVE_GEOS_GEOM_GET_X
-    PHP_ME(Geometry, getX, NULL, 0)
+    PHP_ME(Geometry, getX, arginfo_class_GEOSGeometry_getX, 0)
 #   endif
 
 #   ifdef HAVE_GEOS_GEOM_GET_Y
-    PHP_ME(Geometry, getY, NULL, 0)
+    PHP_ME(Geometry, getY, arginfo_class_GEOSGeometry_getY, 0)
 #   endif
 
-    PHP_ME(Geometry, interiorRingN, NULL, 0)
-    PHP_ME(Geometry, exteriorRing, NULL, 0)
-    PHP_ME(Geometry, numCoordinates, NULL, 0)
-    PHP_ME(Geometry, dimension, NULL, 0)
+    PHP_ME(Geometry, interiorRingN, arginfo_class_GEOSGeometry_interiorRingN, 0)
+    PHP_ME(Geometry, exteriorRing, arginfo_class_GEOSGeometry_exteriorRing, 0)
+    PHP_ME(Geometry, numCoordinates, arginfo_class_GEOSGeometry_numCoordinates, 0)
+    PHP_ME(Geometry, dimension, arginfo_class_GEOSGeometry_dimension, 0)
 
 #   ifdef HAVE_GEOS_GEOM_GET_COORDINATE_DIMENSION
-    PHP_ME(Geometry, coordinateDimension, NULL, 0)
+    PHP_ME(Geometry, coordinateDimension, arginfo_class_GEOSGeometry_coordinateDimension, 0)
 #   endif
 
 #   ifdef HAVE_GEOS_GEOM_GET_POINT_N
-    PHP_ME(Geometry, pointN, NULL, 0)
+    PHP_ME(Geometry, pointN, arginfo_class_GEOSGeometry_pointN, 0)
 #   endif
 
 #   ifdef HAVE_GEOS_GEOM_GET_START_POINT
-    PHP_ME(Geometry, startPoint, NULL, 0)
+    PHP_ME(Geometry, startPoint, arginfo_class_GEOSGeometry_startPoint, 0)
 #   endif
 
 #   ifdef HAVE_GEOS_GEOM_GET_END_POINT
-    PHP_ME(Geometry, endPoint, NULL, 0)
+    PHP_ME(Geometry, endPoint, arginfo_class_GEOSGeometry_endPoint, 0)
 #   endif
 
-    PHP_ME(Geometry, area, NULL, 0)
-    PHP_ME(Geometry, length, NULL, 0)
-    PHP_ME(Geometry, distance, NULL, 0)
-    PHP_ME(Geometry, hausdorffDistance, NULL, 0)
+    PHP_ME(Geometry, area, arginfo_class_GEOSGeometry_area, 0)
+    PHP_ME(Geometry, length, arginfo_class_GEOSGeometry_length, 0)
+    PHP_ME(Geometry, distance, arginfo_class_GEOSGeometry_distance, 0)
+    PHP_ME(Geometry, hausdorffDistance, arginfo_class_GEOSGeometry_hausdorffDistance, 0)
 
 #   if HAVE_GEOS_SNAP
-    PHP_ME(Geometry, snapTo, NULL, 0)
+    PHP_ME(Geometry, snapTo, arginfo_class_GEOSGeometry_snapTo, 0)
 #   endif
 
 #   ifdef HAVE_GEOS_NODE
-    PHP_ME(Geometry, node, NULL, 0)
+    PHP_ME(Geometry, node, arginfo_class_GEOSGeometry_node, 0)
 #   endif
 
 #   ifdef HAVE_GEOS_DELAUNAY_TRIANGULATION
-    PHP_ME(Geometry, delaunayTriangulation, NULL, 0)
+    PHP_ME(Geometry, delaunayTriangulation, arginfo_class_GEOSGeometry_delaunayTriangulation, 0)
 #   endif
 
 #   ifdef HAVE_GEOS_VORONOI_DIAGRAM
-    PHP_ME(Geometry, voronoiDiagram, NULL, 0)
+    PHP_ME(Geometry, voronoiDiagram, arginfo_class_GEOSGeometry_voronoiDiagram, 0)
 #   endif
 
 #   ifdef HAVE_GEOS_CLIP_BY_RECT
-    PHP_ME(Geometry, clipByRect, NULL, 0)
+    PHP_ME(Geometry, clipByRect, arginfo_class_GEOSGeometry_clipByRect, 0)
 #   endif
 
     {NULL, NULL, NULL}
@@ -2347,8 +2350,8 @@ PHP_METHOD(WKTReader, __construct);
 PHP_METHOD(WKTReader, read);
 
 static zend_function_entry WKTReader_methods[] = {
-    PHP_ME(WKTReader, __construct, NULL, 0)
-    PHP_ME(WKTReader, read, NULL, 0)
+    PHP_ME(WKTReader, __construct, arginfo_class_GEOSWKTReader___construct, 0)
+    PHP_ME(WKTReader, read, arginfo_class_GEOSWKTReader_read, 0)
     {NULL, NULL, NULL}
 };
 
@@ -2457,27 +2460,27 @@ PHP_METHOD(WKTWriter, setOld3D);
 #endif
 
 static zend_function_entry WKTWriter_methods[] = {
-    PHP_ME(WKTWriter, __construct, NULL, 0)
-    PHP_ME(WKTWriter, write, NULL, 0)
+    PHP_ME(WKTWriter, __construct, arginfo_class_GEOSWKTWriter___construct, 0)
+    PHP_ME(WKTWriter, write, arginfo_class_GEOSWKTWriter_write, 0)
 
 #   ifdef HAVE_GEOS_WKT_WRITER_SET_TRIM
-    PHP_ME(WKTWriter, setTrim, NULL, 0)
+    PHP_ME(WKTWriter, setTrim, arginfo_class_GEOSWKTWriter_setTrim, 0)
 #   endif
 
 #   ifdef HAVE_GEOS_WKT_WRITER_SET_ROUNDING_PRECISION
-    PHP_ME(WKTWriter, setRoundingPrecision, NULL, 0)
+    PHP_ME(WKTWriter, setRoundingPrecision, arginfo_class_GEOSWKTWriter_setRoundingPrecision, 0)
 #   endif
 
 #   ifdef HAVE_GEOS_WKT_WRITER_SET_OUTPUT_DIMENSION
-    PHP_ME(WKTWriter, setOutputDimension, NULL, 0)
+    PHP_ME(WKTWriter, setOutputDimension, arginfo_class_GEOSWKTWriter_setOutputDimension, 0)
 #   endif
 
 #   ifdef HAVE_GEOS_WKT_WRITER_GET_OUTPUT_DIMENSION
-    PHP_ME(WKTWriter, getOutputDimension, NULL, 0)
+    PHP_ME(WKTWriter, getOutputDimension, arginfo_class_GEOSWKTWriter_getOutputDimension, 0)
 #   endif
 
 #   ifdef HAVE_GEOS_WKT_WRITER_SET_OLD_3D
-    PHP_ME(WKTWriter, setOld3D, NULL, 0)
+    PHP_ME(WKTWriter, setOld3D, arginfo_class_GEOSWKTWriter_setOld3D, 0)
 #   endif
 
     {NULL, NULL, NULL}
@@ -2665,15 +2668,15 @@ PHP_METHOD(WKBWriter, write);
 PHP_METHOD(WKBWriter, writeHEX);
 
 static zend_function_entry WKBWriter_methods[] = {
-    PHP_ME(WKBWriter, __construct, NULL, 0)
-    PHP_ME(WKBWriter, getOutputDimension, NULL, 0)
-    PHP_ME(WKBWriter, setOutputDimension, NULL, 0)
-    PHP_ME(WKBWriter, getByteOrder, NULL, 0)
-    PHP_ME(WKBWriter, setByteOrder, NULL, 0)
-    PHP_ME(WKBWriter, getIncludeSRID, NULL, 0)
-    PHP_ME(WKBWriter, setIncludeSRID, NULL, 0)
-    PHP_ME(WKBWriter, write, NULL, 0)
-    PHP_ME(WKBWriter, writeHEX, NULL, 0)
+    PHP_ME(WKBWriter, __construct, arginfo_class_GEOSWKBWriter___construct, 0)
+    PHP_ME(WKBWriter, getOutputDimension, arginfo_class_GEOSWKBWriter_getOutputDimension, 0)
+    PHP_ME(WKBWriter, setOutputDimension, arginfo_class_GEOSWKBWriter_setOutputDimension, 0)
+    PHP_ME(WKBWriter, getByteOrder, arginfo_class_GEOSWKBWriter_getByteOrder, 0)
+    PHP_ME(WKBWriter, setByteOrder, arginfo_class_GEOSWKBWriter_setByteOrder, 0)
+    PHP_ME(WKBWriter, getIncludeSRID, arginfo_class_GEOSWKBWriter_getIncludeSRID, 0)
+    PHP_ME(WKBWriter, setIncludeSRID, arginfo_class_GEOSWKBWriter_setIncludeSRID, 0)
+    PHP_ME(WKBWriter, write, arginfo_class_GEOSWKBWriter_write, 0)
+    PHP_ME(WKBWriter, writeHEX, arginfo_class_GEOSWKBWriter_writeHEX, 0)
     {NULL, NULL, NULL}
 };
 
@@ -2904,9 +2907,9 @@ PHP_METHOD(WKBReader, read);
 PHP_METHOD(WKBReader, readHEX);
 
 static zend_function_entry WKBReader_methods[] = {
-    PHP_ME(WKBReader, __construct, NULL, 0)
-    PHP_ME(WKBReader, read, NULL, 0)
-    PHP_ME(WKBReader, readHEX, NULL, 0)
+    PHP_ME(WKBReader, __construct, arginfo_class_GEOSWKBReader___construct, 0)
+    PHP_ME(WKBReader, read, arginfo_class_GEOSWKBReader_read, 0)
+    PHP_ME(WKBReader, readHEX, arginfo_class_GEOSWKBReader_readHEX, 0)
     {NULL, NULL, NULL}
 };
 
