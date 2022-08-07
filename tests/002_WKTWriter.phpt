@@ -15,24 +15,6 @@ class WKTWriterTest extends GEOSTest
         $this->assertNotNull($writer);
     }
 
-    public function testWKTWriter_write()
-    {
-        $writer = new GEOSWKTWriter();
-        $reader = new GEOSWKTReader();
-
-        try {
-            $writer->write(1);
-            $this->assertTrue(FALSE); # this is just to fail if we get here
-        } catch (Exception $e) {
-            $this->assertContains('expects parameter 1', $e->getMessage());
-        }
-
-        $g = $reader->read('POINT(6 7)');
-
-        $this->assertEquals('POINT (6.0000000000000000 7.0000000000000000)',
-            $writer->write($g));
-    }
-
     public function testWKTWriter_setTrim()
     {
         if (!method_exists("GEOSWKTWriter", 'setTrim')) {

@@ -87,20 +87,6 @@ class WKTReaderTest extends GEOSTest
             $this->assertContains('ParseException', $e->getMessage());
         }
     }
-
-    public function testNoArgumentsToRead()
-    {
-        $reader = new GEOSWKTReader();
-
-        /* BOGUS call (#448) */
-        try {
-            $reader->read();
-            $this->assertTrue(FALSE); # this is just to fail if we get here
-        } catch (Exception $e) {
-            $this->assertContains('expects exactly 1 parameter',
-                                  $e->getMessage());
-        }
-    }
 }
 
 WKTReaderTest::run();

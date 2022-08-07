@@ -130,30 +130,6 @@ class WKBWriterTest extends GEOSTest
         $this->runWKBWriter_write(0, 3, 3, false, '00800000014018000000000000401C0000000000004020000000000000');        // 3D BIG endian
         $this->runWKBWriter_write(0, 3, 3, true, '00A0000001000000354018000000000000401C0000000000004020000000000000'); // 3D BIG endian + SRID
     }
-
-    public function testInvalidWriteThrowsException()
-    {
-        $writer = new GEOSWKBWriter();
-
-        try {
-            $writer->write(1);
-            $this->assertTrue(false);
-        } catch (ErrorException $e) {
-            $this->assertContains('expects parameter 1 to be object, integer given', $e->getMessage());
-        }
-    }
-
-    public function testInvalidWriteHEXThrowsException()
-    {
-        $writer = new GEOSWKBWriter();
-
-        try {
-            $writer->writeHEX(1);
-            $this->assertTrue(false);
-        } catch (ErrorException $e) {
-            $this->assertContains('expects parameter 1 to be object, integer given', $e->getMessage());
-        }
-    }
 }
 
 WKBWriterTest::run();
