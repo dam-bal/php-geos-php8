@@ -1,10 +1,6 @@
 PHP module for GEOS
 ===================
 
-[![build status]
-(https://dronie.osgeo.org/api/badges/geos/php-geos/status.svg?branch=master)]
-(https://dronie.osgeo.org/geos/php-geos?branch=master)
-
 The code in this directory provides a PHP module to make use
 of functionalities of the [GEOS library] (http://geos.osgeo.org).
 
@@ -17,18 +13,18 @@ The bindings are linked to the C-API, for betters stability.
 You need:
 
   - PHP development files
-    ( often found in packages named something like 'php5-dev' )
+    ( often found in packages named something like 'php{version}-dev' )
 
   - GEOS development files
-    ( often found in packages named something like 'libgeos-dev' )
+    ( often found in packages named something like 'libgeos-dev/geos-dev' )
 
 ## Procedure
 
-    git clone https://git.osgeo.org/gitea/geos/php-geos.git
-    cd php-geos
+    git clone https://github.com/dam-bal/php-geos-php8.git
+    cd php-geos-php8
     ./autogen.sh
     ./configure
-    make # generates modules/geos.so
+    make
 
 # Testing
 
@@ -44,9 +40,3 @@ As root (or owner with write access to the directory
 returned by php-config --extension-dir), run:
 
     make install
-
-# Using
-
- ... TODO ...
- (reference some automatically built doc?)
-
