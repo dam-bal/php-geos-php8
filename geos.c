@@ -45,6 +45,14 @@ PHP_FUNCTION(GEOSVersion);
 PHP_FUNCTION(GEOSPolygonize);
 PHP_FUNCTION(GEOSLineMerge);
 
+#ifndef TSRMLS_D
+#define TSRMLS_D void
+#define TSRMLS_DC
+#define TSRMLS_C
+#define TSRMLS_CC
+#define TSRMLS_FETCH()
+#endif
+
 #ifdef HAVE_GEOS_SHARED_PATHS
 PHP_FUNCTION(GEOSSharedPaths);
 #endif
