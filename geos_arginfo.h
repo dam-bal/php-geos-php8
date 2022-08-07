@@ -1,5 +1,5 @@
 /* This is a generated file, edit the .stub.php file instead.
- * Stub hash: a9f5d3982b610f6c533434679901ad5e4e616ba9 */
+ * Stub hash: 3a1a549d6867ef9311f0c09f0459bab02b130b97 */
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_GEOSVersion, 0, 0, IS_STRING, 0)
 ZEND_END_ARG_INFO()
@@ -50,12 +50,12 @@ ZEND_END_ARG_INFO()
 
 #define arginfo_class_GEOSGeometry_centroid arginfo_class_GEOSGeometry_convexHull
 
-ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_GEOSGeometry_relate, 0, 1, _IS_BOOL, 0)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_GEOSGeometry_relate, 0, 1, _IS_BOOL, 1)
 	ZEND_ARG_OBJ_INFO(0, otherGeom, GEOSGeometry, 0)
 	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, pattern, IS_STRING, 1, "null")
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_GEOSGeometry_relateBoundaryNodeRule, 0, 2, _IS_BOOL, 0)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_GEOSGeometry_relateBoundaryNodeRule, 0, 2, _IS_BOOL, 1)
 	ZEND_ARG_OBJ_INFO(0, otherGeom, GEOSGeometry, 0)
 	ZEND_ARG_TYPE_INFO(0, rule, IS_LONG, 0)
 ZEND_END_ARG_INFO()
@@ -77,7 +77,7 @@ ZEND_END_ARG_INFO()
 
 #define arginfo_class_GEOSGeometry_extractUniquePoints arginfo_class_GEOSGeometry_convexHull
 
-ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_GEOSGeometry_disjoint, 0, 1, _IS_BOOL, 0)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_GEOSGeometry_disjoint, 0, 1, _IS_BOOL, 1)
 	ZEND_ARG_OBJ_INFO(0, otherGeom, GEOSGeometry, 0)
 ZEND_END_ARG_INFO()
 
@@ -99,7 +99,7 @@ ZEND_END_ARG_INFO()
 
 #define arginfo_class_GEOSGeometry_equals arginfo_class_GEOSGeometry_disjoint
 
-ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_GEOSGeometry_equalsExact, 0, 1, _IS_BOOL, 0)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_GEOSGeometry_equalsExact, 0, 1, _IS_BOOL, 1)
 	ZEND_ARG_OBJ_INFO(0, otherGeom, GEOSGeometry, 0)
 	ZEND_ARG_OBJ_INFO_WITH_DEFAULT_VALUE(0, tolerance, double, 0, "0")
 ZEND_END_ARG_INFO()
@@ -143,9 +143,9 @@ ZEND_END_ARG_INFO()
 
 #define arginfo_class_GEOSGeometry_getY arginfo_class_GEOSGeometry_getX
 
-#define arginfo_class_GEOSGeometry_interiorRingN arginfo_class_GEOSGeometry_geometryN
+#define arginfo_class_GEOSGeometry_interiorRingN arginfo_class_GEOSGeometry_convexHull
 
-#define arginfo_class_GEOSGeometry_exteriorRing arginfo_class_GEOSGeometry_geometryN
+#define arginfo_class_GEOSGeometry_exteriorRing arginfo_class_GEOSGeometry_convexHull
 
 #define arginfo_class_GEOSGeometry_numCoordinates arginfo_class_GEOSGeometry_typeId
 
@@ -153,17 +153,17 @@ ZEND_END_ARG_INFO()
 
 #define arginfo_class_GEOSGeometry_coordinateDimension arginfo_class_GEOSGeometry_typeId
 
-#define arginfo_class_GEOSGeometry_pointN arginfo_class_GEOSGeometry_geometryN
+#define arginfo_class_GEOSGeometry_pointN arginfo_class_GEOSGeometry_convexHull
 
-#define arginfo_class_GEOSGeometry_startPoint arginfo_class_GEOSGeometry_geometryN
+#define arginfo_class_GEOSGeometry_startPoint arginfo_class_GEOSGeometry_convexHull
 
-#define arginfo_class_GEOSGeometry_endPoint arginfo_class_GEOSGeometry_geometryN
+#define arginfo_class_GEOSGeometry_endPoint arginfo_class_GEOSGeometry_convexHull
 
 #define arginfo_class_GEOSGeometry_area arginfo_class_GEOSGeometry_getX
 
 #define arginfo_class_GEOSGeometry_length arginfo_class_GEOSGeometry_getX
 
-ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_GEOSGeometry_distance, 0, 1, IS_DOUBLE, 0)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_GEOSGeometry_distance, 0, 1, IS_DOUBLE, 1)
 	ZEND_ARG_OBJ_INFO(0, otherGeom, GEOSGeometry, 0)
 ZEND_END_ARG_INFO()
 
@@ -174,7 +174,7 @@ ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_class_GEOSGeometry_delaunayTriang
 	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, onlyEdges, _IS_BOOL, 0, "false")
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_class_GEOSGeometry_project, 0, 1, double, 0)
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_class_GEOSGeometry_project, 0, 1, double, 1)
 	ZEND_ARG_OBJ_INFO(0, other, GEOSGeometry, 0)
 	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, normalized, _IS_BOOL, 0, "false")
 ZEND_END_ARG_INFO()
@@ -186,7 +186,7 @@ ZEND_END_ARG_INFO()
 
 #define arginfo_class_GEOSGeometry_offsetCurve arginfo_class_GEOSGeometry_buffer
 
-#define arginfo_class_GEOSGeometry_envelope arginfo_class_GEOSGeometry_geometryN
+#define arginfo_class_GEOSGeometry_envelope arginfo_class_GEOSGeometry_convexHull
 
 ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_class_GEOSGeometry_intersection, 0, 1, GEOSGeometry, 1)
 	ZEND_ARG_OBJ_INFO(0, otherGeom, GEOSGeometry, 0)
@@ -203,7 +203,7 @@ ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_class_GEOSGeometry_snapTo, 0, 2, 
 	ZEND_ARG_TYPE_INFO(0, tolerance, IS_DOUBLE, 0)
 ZEND_END_ARG_INFO()
 
-#define arginfo_class_GEOSGeometry_node arginfo_class_GEOSGeometry_geometryN
+#define arginfo_class_GEOSGeometry_node arginfo_class_GEOSGeometry_convexHull
 
 ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_class_GEOSGeometry_voronoiDiagram, 0, 0, GEOSGeometry, 1)
 	ZEND_ARG_OBJ_INFO_WITH_DEFAULT_VALUE(0, tolerance, double, 0, "0.0")

@@ -20,9 +20,9 @@ class GEOSGeometry
 
     public function centroid(): ?GEOSGeometry {}
 
-    public function relate(GEOSGeometry $otherGeom, ?string $pattern = null): bool {}
+    public function relate(GEOSGeometry $otherGeom, ?string $pattern = null): ?bool {}
 
-    public function relateBoundaryNodeRule(GEOSGeometry $otherGeom, int $rule): bool {}
+    public function relateBoundaryNodeRule(GEOSGeometry $otherGeom, int $rule): ?bool {}
 
     public function simplify(float $tolerance, bool $preserveTopology = false): ?GEOSGeometry {}
 
@@ -34,29 +34,29 @@ class GEOSGeometry
 
     public function extractUniquePoints(): ?GEOSGeometry {}
 
-    public function disjoint(GEOSGeometry $otherGeom): bool {}
+    public function disjoint(GEOSGeometry $otherGeom): ?bool {}
 
-    public function touches(GEOSGeometry $otherGeom): bool {}
+    public function touches(GEOSGeometry $otherGeom): ?bool {}
 
-    public function intersects(GEOSGeometry $otherGeom): bool {}
+    public function intersects(GEOSGeometry $otherGeom): ?bool {}
 
-    public function crosses(GEOSGeometry $otherGeom): bool {}
+    public function crosses(GEOSGeometry $otherGeom): ?bool {}
 
-    public function within(GEOSGeometry $otherGeom): bool {}
+    public function within(GEOSGeometry $otherGeom): ?bool {}
 
-    public function contains(GEOSGeometry $otherGeom): bool {}
+    public function contains(GEOSGeometry $otherGeom): ?bool {}
 
-    public function overlaps(GEOSGeometry $otherGeom): bool {}
+    public function overlaps(GEOSGeometry $otherGeom): ?bool {}
 
-    public function covers(GEOSGeometry $otherGeom): bool {}
+    public function covers(GEOSGeometry $otherGeom): ?bool {}
 
-    public function coveredBy(GEOSGeometry $otherGeom): bool {}
+    public function coveredBy(GEOSGeometry $otherGeom): ?bool {}
 
-    public function equals(GEOSGeometry $otherGeom): bool {}
+    public function equals(GEOSGeometry $otherGeom): ?bool {}
 
-    public function equalsExact(GEOSGeometry $otherGeom, double $tolerance = 0): bool {}
+    public function equalsExact(GEOSGeometry $otherGeom, double $tolerance = 0): ?bool {}
 
-    public function isEmpty(GEOSGeometry $otherGeom, double $tolerance = 0): bool {}
+    public function isEmpty(GEOSGeometry $otherGeom, double $tolerance = 0): ?bool {}
 
     public function checkValidity(): array {}
 
@@ -88,9 +88,9 @@ class GEOSGeometry
 
     public function getY(): float {}
 
-    public function interiorRingN(): GEOSGeometry {}
+    public function interiorRingN(): ?GEOSGeometry {}
 
-    public function exteriorRing(): GEOSGeometry {}
+    public function exteriorRing(): ?GEOSGeometry {}
 
     public function numCoordinates(): int {}
 
@@ -98,29 +98,29 @@ class GEOSGeometry
 
     public function coordinateDimension(): int {}
 
-    public function pointN(): GEOSGeometry {}
+    public function pointN(): ?GEOSGeometry {}
 
-    public function startPoint(): GEOSGeometry {}
+    public function startPoint(): ?GEOSGeometry {}
 
-    public function endPoint(): GEOSGeometry {}
+    public function endPoint(): ?GEOSGeometry {}
 
     public function area(): float {}
 
     public function length(): float {}
 
-    public function distance(GEOSGeometry $otherGeom): float {}
+    public function distance(GEOSGeometry $otherGeom): ?float {}
 
-    public function hausdorffDistance(GEOSGeometry $otherGeom): float {}
+    public function hausdorffDistance(GEOSGeometry $otherGeom): ?float {}
 
     public function delaunayTriangulation(float $tolerance = 0.0, bool $onlyEdges = false): ?GEOSGeometry {}
 
-    public function project(GEOSGeometry $other, bool $normalized = false): double;
+    public function project(GEOSGeometry $other, bool $normalized = false): ?double;
 
     public function interpolate(float $dist, bool $normalized = false): ?GEOSGeometry;
 
     public function offsetCurve(float $dist, array $styleArray): ?GEOSGeometry {}
 
-    public function envelope(): GEOSGeometry {}
+    public function envelope(): ?GEOSGeometry {}
 
     public function intersection(GEOSGeometry $otherGeom): ?GEOSGeometry {}
 
@@ -132,7 +132,7 @@ class GEOSGeometry
 
     public function snapTo(GEOSGeometry $otherGeom, float $tolerance): ?GEOSGeometry {}
 
-    public function node(): GEOSGeometry {}
+    public function node(): ?GEOSGeometry {}
 
     public function voronoiDiagram(double $tolerance = 0.0, bool $onlyEdges = false, ?GEOSGeometry $extent = null): ?GEOSGeometry {}
 }
